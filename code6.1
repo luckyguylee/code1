@@ -1,0 +1,25 @@
+#！usr/bin/env python
+
+import string           #导入模块string
+
+alphas=string.letters+'_'      #第一个字符是字母或者下划线
+nums=string.digits             #数字
+
+print 'welcome to the Identifier Checker v1.0'
+print 'Testees must be at least 2 chars long.'   #提醒用户输入至少两个字符长度
+muInput=raw_input('Identifier to test?')      #用户输入，记为myInput
+
+	if len(myInput)>1:    #判断字符长度
+		
+		if muInput[0] not in alphas:        #判断首字符是否在alphas中
+			print '''invalid:first symbos must be
+				alphabetic'''
+		else:
+			for otherChar in muInput[1:]:       #判断首字符以外的其他字符
+				
+				if otherChar not in alphas+nums:
+					print '''invalid:remaining 
+						symbos must be alphabetic'''
+					break
+		else:
+			print "okay as an identifier"

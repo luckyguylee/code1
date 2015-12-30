@@ -1,0 +1,46 @@
+#!/usr/bin/env python
+
+stack=[]         #建立空栈列表
+
+def pushit():
+	stack.append(raw_input('enter new string:').strip())
+	
+def popit():
+	if len(stack)==0:
+		print 'canont pop from an empty stack!'
+	else:
+		print 'removed[','stack.pop()',']'
+
+def viewstcak():
+    print stack 
+	
+CMDs={'u':pushit,'o':popit,'v':viewstack}
+
+def showmenu():
+	pr="""
+	p(U)s
+	p(O)p
+	(V)iew
+	(Q)uit
+	
+	enter choice:"""
+	
+	while True:
+		while True:
+		try:
+			choice=raw_input(pr).strip()[0].lower()
+		except (EOFError,KeyboardInterrupt,IndexError):
+			choice='q'
+			
+		print '\nyou picked:[%s]'%choice
+		if choice not in 'uovq':
+			print 'Invalid option ,try again'
+		else:
+			break
+			
+		if choice=='q':
+			break
+		CMDs[choice]()
+		
+if _name_=='_main_':
+	showmenu()

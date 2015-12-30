@@ -1,0 +1,32 @@
+#!/usr/bin/env python
+
+'makeTextFile.py--create text file'
+
+import os     #导入os模块
+ls=os.linesep     #os.linesep字符串给出当前平台使用的行终止符,并命名为ls
+
+#get filename
+while True:
+
+if os.path.exits(fname):
+	print "ERROR:'%s'already exits"%fname
+else:
+	break
+	
+#get file content (text)lines
+all=[]    #初始化列表all
+print "\nEnter lines('.'by itself to quit).\n"
+
+#loop until user terminates input
+while True:
+	entry=raw_input('>')
+	if entry=='.':
+		break
+	else：
+		all.append(entry)
+		
+#write lines to file with proper line-ending
+fobj=open(fname,'w')           #打开文件，写入操作
+fobj.writelines(['%s%s'%(x,ls) for x in all])     #
+fobj.close()
+print 'DONE!'
